@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <h2 class="page-header">Ng-table my page</h2>
+        <table ng-table="ngTableDemoController.tableParams" class="table" show-filter="true">
+            <tr ng-repeat="automobile in $data">
+                <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                    {{automobile.name}}</td>
+                <td title="'Surname'" filter="{ surname: 'text'}" sortable="'surname'">
+                    {{automobile.surname}}</td>
+                <td title="'Company'" filter="{ company: 'text'}" sortable="'company'">
+                    {{automobile.company}}</td>
+                <td title="'Plate'" filter="{ plate: 'text'}" sortable="'plate'">
+                    {{automobile.plate}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

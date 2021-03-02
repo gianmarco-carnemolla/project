@@ -1,0 +1,13 @@
+<div class="row col-md-offset-1">
+    <input id="idCompany" ng-model="idCompany"/>
+    <button type="submit" class="btn btn-default" ng-click="demoController.getCompany(idCompany)"
+    tooltip-placement="bottom" uib-tooltip="{{demoController.tooltipCompany}}">{{demoController.buttonMessageCompany}}</button>
+    <button type="submit" class="btn btn-default" ng-click="demoController.getPlate(idCompany)"
+    tooltip-placement="bottom" uib-tooltip="{{demoController.tooltipPlate}}">{{demoController.buttonMessagePlate}}</button>
+</div>
+<div class="row">
+    &nbsp;
+</div>
+<div class="row">
+    <pre ng-show="demoController.response != undefined">http response data: {{demoController.response}}</pre>
+</div>

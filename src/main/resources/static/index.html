@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>index</title>
+	<link rel="stylesheet" href="/node_modules/ng-table/bundles/ng-table.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body ng-app="demoApp" style="background-color:darksalmon">
+	<h1>My Page</h1>
+	<div class="row">
+		<a class="col-md-1 col-sm-offset-1" style="color:black" href="#!">Home</a>
+		<a class="col-md-1" style="color:black" href="#!demo">Demo</a>
+		<a class="col-md-1" style="color:black" href="#!table">Table</a>
+	</div>
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="container-fluid" ng-view></div>
+
+	<script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-resource/angular-resource.min.js"></script>
+
+    <!--<script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+
+    <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/node_modules/angularjs-ui-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="/node_modules/angularjs-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+	<script type="text/javascript" src="/node_modules/ng-table/bundles/ng-table.min.js"></script>
+	
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/controller/mainController.js"></script>
+	<script type="text/javascript" src="app/controller/demoController.js"></script>
+	<script type="text/javascript" src="app/controller/ngTableDemoController.js"></script>
+	<script type="text/javascript" src="app/service/demoService.js"></script>
+	<script type="text/javascript" src="app/service/ngTableDemoService.js"></script>
+</body>
+
+</html>
