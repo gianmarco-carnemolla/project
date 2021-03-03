@@ -1,0 +1,44 @@
+<form name="myForm" novalidate>
+    
+    <div class="row">
+        <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.nameId.$invalid }">
+            <label for="nameId">Owner name:</label>
+            <input type="text" class="form-control" id="nameId" name="nameId" placeholder="name"
+                ng-model="formDemoController.nameId" required>
+        </div>
+    </div>
+    <span class="error" ng-show="myForm.nameId.$error.required" style="color: red;">Required!</span><br><br>
+    
+    <div class="row">    
+        <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.surnameId.$invalid }">
+            <label for="surnameId">Owner surname:</label>
+            <input type="text" class="form-control" id="surnameId" name="surnameId" placeholder="surname"
+                ng-model="formDemoController.surnameId" required>
+        </div>
+    </div>
+    <span class="error" ng-show="myForm.surnameId.$error.required" style="color: red;">Required!</span><br><br>
+    
+    <div class="row">
+        <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.cars.$invalid }">
+            <label for="cars">Company</label>
+            <select required class="form-control" name="cars" id="cars"
+                ng-options="car.company for car in formDemoController.cars track by car.company"
+                ng-model="formDemoController.carsSelected">
+            </select>
+        </div>
+    </div>
+    <span class="error" ng-show="myForm.cars.$error.required" style="color: red;">Required!</span><br><br>
+    
+    <div class="row">    
+        <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.plateId.$invalid }">
+            <label for="plateId">Plate</label>
+            <input type="text" class="form-control" id="plateId" name="plateId" placeholder="plate"
+                ng-model="formDemoController.plateId" required>
+        </div>
+    </div>
+    <span class="error" ng-show="myForm.plateId.$error.required" style="color: red;">Required!</span><br><br>
+    
+    <button type="submit" class="btn btn-default" ng-disabled="myForm.nameId.$invalid || myForm.surnameId.$invalid || 
+    myForm.cars.$invalid || myForm.plateId.$invalid" 
+        ng-click="formDemoController.submit()">Submit</button>
+</form>

@@ -3,9 +3,11 @@
         <h2 class="page-header">Ng-table my page</h2>
         <table ng-table="ngTableDemoController.tableParams" class="table" show-filter="true">
             <tr ng-repeat="automobile in $data">
-                <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                <td class="col-sm-1" title="'Id'" filter="{ id: 'text'}" sortable="'id'">
+                    {{automobile.id}}</td>
+                <td title="'Owner name'" filter="{ name: 'text'}" sortable="'name'">
                     {{automobile.name}}</td>
-                <td title="'Surname'" filter="{ surname: 'text'}" sortable="'surname'">
+                <td title="'Owner surname'" filter="{ surname: 'text'}" sortable="'surname'">
                     {{automobile.surname}}</td>
                 <td title="'Company'" filter="{ company: 'text'}" sortable="'company'">
                     {{automobile.company}}</td>

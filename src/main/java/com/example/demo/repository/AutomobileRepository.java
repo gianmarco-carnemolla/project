@@ -9,4 +9,5 @@ import com.example.demo.model.Automobile;
 @Repository
 public interface AutomobileRepository extends CrudRepository<Automobile, Long>{
 	public List <Automobile> findAll();
+	
 }
