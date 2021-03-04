@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Add Car</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-left: 0px;">
+        <li role="presentation" class="active">
+            <a class="nav-link" id="owner-data-tab" data-toggle="tab" href role="tab" aria-controls="ownerData" aria-selected="true">Owner data</a>
+        </li>
+        <li role="presentation">
+            <a class="nav-link" id="car-data-tab" data-toggle="tab" href role="tab" aria-controls="carData" aria-selected="false">Car data</a>
+        </li>
+    </ul>
+    
+    <div class="tab-content" id="myTabContent">
+        <form name="myForm" novalidate>
+            
+            <!-- Owner data panel -->
+            <div role="tabpanel" class="tab-pane active" id="ownerData" aria-labelledby="owner-data-tab">
+                <div class="row">
+                    <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.nameId.$invalid }">
+                        <label for="nameId">Owner name:</label>
+                        <input type="text" class="form-control" id="nameId" name="nameId" placeholder="name"
+                            ng-model="modal.nameId" required>
+                    </div>
+                </div>
+                <span class="error" ng-show="myForm.nameId.$error.required" style="color: red;">Required!</span><br><br>
+                
+                <div class="row">    
+                    <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.surnameId.$invalid }">
+                        <label for="surnameId">Owner surname:</label>
+                        <input type="text" class="form-control" id="surnameId" name="surnameId" placeholder="surname"
+                            ng-model="modal.surnameId" required>
+                    </div>
+                </div>
+                <span class="error" ng-show="myForm.surnameId.$error.required" style="color: red;">Required!</span><br><br>
+            
+            </div>
+            
+            <!-- Car data panel -->
+            <div role="tabpanel" class="tab-pane" id="carData" aria-labelledby="car-data-tab">
+                <div class="row">
+                    <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.cars.$invalid }">
+                        <label for="cars">Company</label>
+                        <select required class="form-control" name="cars" id="cars"
+                            ng-options="car.company for car in modal.cars track by car.company"
+                            ng-model="modal.carsSelected">
+                        </select>
+                    </div>
+                </div>
+                <span class="error" ng-show="myForm.cars.$error.required" style="color: red;">Required!</span><br><br>
+                
+                <div class="row">    
+                    <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.plateId.$invalid }">
+                        <label for="plateId">Plate</label>
+                        <input type="text" class="form-control" id="plateId" name="plateId" placeholder="plate"
+                            ng-model="modal.plateId" required>
+                    </div>
+                </div>
+                <span class="error" ng-show="myForm.plateId.$error.required" style="color: red;">Required!</span><br><br>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-disabled="myForm.nameId.$invalid || myForm.surnameId.$invalid || 
+        myForm.cars.$invalid || myForm.plateId.$invalid" 
+            ng-click="modal.ok()">Submit</button>
+    <button class="btn btn-warning" type="button" ng-click="modal.cancel()">Cancel</button>
+</div>

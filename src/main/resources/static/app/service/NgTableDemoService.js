@@ -14,4 +14,11 @@ function NgTableDemoService($http) {
                 return response.data;
             });
     };
+
+    service.addAutomobile = function (requestBody) {
+        return $http.post('/api/addAutomobile', requestBody)
+            .then(function (response) {
+                return response;
+            });
+    };
 };

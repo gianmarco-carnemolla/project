@@ -16,10 +16,5 @@ demoApp.config(function ($routeProvider) {
             templateUrl: "views/ngTable-demo.html",
             controller: "ngTableDemoCtrl",
             controllerAs: "ngTableDemoController"
-        })
-        .when('/form', {
-            templateUrl: "views/form.html",
-            controller: "formDemoCtrl",
-            controllerAs: "formDemoController"
         });
 });
