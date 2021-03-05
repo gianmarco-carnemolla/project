@@ -15,6 +15,13 @@ function NgTableDemoService($http) {
             });
     };
 
+    service.getAllDitta = function () {
+        return $http.get('/api/ditta/all')
+            .then(function (response) {
+                return response.data;
+            });
+    };
+
     service.addAutomobile = function (requestBody) {
         return $http.post('/api/addAutomobile', requestBody)
             .then(function (response) {
