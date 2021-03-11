@@ -28,4 +28,11 @@ function NgTableDemoService($http) {
                 return response;
             });
     };
+
+    service.getTypeahead = function() {
+        return $http.get('https://jsonplaceholder.typicode.com/users')
+            .then(function (response) {
+                return response.data;
+            });
+    };
 };

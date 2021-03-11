@@ -23,7 +23,15 @@ angular.module("demoApp")
                 controller: "ModalDemoCtrl",
                 controllerAs: "modal",
                 size: "lg",
-                backdrop: "static"
+                backdrop: "static",
+                resolve: {
+                    tierOneData: function (NgTableDemoService) {
+                        return NgTableDemoService.getTypeahead()
+                    },
+                    companies: function (NgTableDemoService) {
+                        return NgTableDemoService.getAllDitta()
+                    }
+                }
             });
 
             modalInstance.result
@@ -43,23 +51,22 @@ angular.module("demoApp")
     }]);
 
 angular.module("demoApp")
-    .controller("ModalDemoCtrl", ["$uibModalInstance", 'NgTableDemoService',
-        function ($uibModalInstance, NgTableDemoService) {
+    .controller("ModalDemoCtrl", ["$uibModalInstance", 'NgTableDemoService', 'tierOneData', 'companies', 
+        function ($uibModalInstance, NgTableDemoService, tierOneData, companies) {
             var modal = this;
             modal.showingTab = "ownerData";
 
-            NgTableDemoService.getAllDitta().then(
-                function (response) {
-                    modal.companies = response;
-                });
-            
             modal.show = function (tabName, toReturn) {
                 if (toReturn === true) {
                     return (modal.showingTab === tabName);
                 }
-    
+
                 modal.showingTab = tabName;
             }
+
+            modal.companies = companies;
+            
+            modal.tierOneData = tierOneData;
             
             modal.ok = function () {
                 var data = {
@@ -68,11 +75,11 @@ angular.module("demoApp")
                     company: modal.companiesSelected.name,
                     plate: modal.plateId
                 };
-                
+
                 $uibModalInstance.close(data);
             };
-            
+
             modal.cancel = function () {
                 $uibModalInstance.dismiss('cancel');
             };
-    }]);
+        }]);

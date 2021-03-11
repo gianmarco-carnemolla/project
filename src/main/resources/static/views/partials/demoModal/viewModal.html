@@ -55,13 +55,13 @@
                             </select>
                         </div>
                     </div>
-                    <span class="error" ng-show="myForm.cars.$error.required" style="color: red;">Required!</span><br><br>
+                    <span class="error" ng-show="myForm.companies.$error.required" style="color: red;">Required!</span><br><br>
                     
                     <div class="row">    
                         <div class="form-group col-md-3" ng-class="{ 'has-error': myForm.plateId.$invalid }">
                             <label for="plateId">Plate</label>
-                            <input type="text" class="form-control" id="plateId" name="plateId" placeholder="plate"
-                                ng-model="modal.plateId" required>
+                            <input type="text" class="form-control" name="plateId" placeholder="plate"
+                            uib-typeahead="tierOne.name for tierOne in modal.tierOneData | filter:{name:$viewValue}" ng-model="modal.plateId" required>
                         </div>
                     </div>
                     <span class="error" ng-show="myForm.plateId.$error.required" style="color: red;">Required!</span><br><br>
